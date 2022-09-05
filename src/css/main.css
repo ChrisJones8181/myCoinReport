@@ -1,0 +1,68 @@
+body {
+  background-color: darkslategray;
+  color: mintcream;
+  font-family: Source Sans Pro;
+}
+
+.topNav {
+  overflow: hidden;
+}
+
+.topNav p {
+  float: left;
+  margin: 1rem 3rem 0rem 3rem;
+}
+
+.tableContainer {
+  border: 0.15rem solid grey;
+  border-radius: 1.5rem;
+  margin: 2rem;
+  padding: 0rem 1rem 1rem 1rem;
+}
+
+.table {
+  /* display: grid;
+  place-items: center; */
+}
+
+.tableHeader {
+  position: sticky;
+  top: 0;
+  background-color: darkslategray;
+}
+
+th {
+  font-size: 1.2rem;
+  text-align: left;
+  padding: 0.5rem 1rem 0.8rem 0.4rem;
+  border-bottom: 0.08rem solid grey;
+}
+
+td {
+  padding: 0.5rem;
+}
+
+.coinIcon {
+  max-width: 1.6rem;
+  vertical-align: bottom;
+}
+
+.spinner {
+  margin: 2rem auto;
+  text-align: center;
+  animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.material-icons {
+  font-size: 3rem;
+}
