@@ -66,3 +66,11 @@ td {
 .material-icons {
   font-size: 3rem;
 }
+
+.percentageIncrease {
+  color: lightgreen;
+}
+
+.percentageDecrease {
+  color: crimson;
+}

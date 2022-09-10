@@ -14,7 +14,7 @@ const controlCryptoList = async function () {
     // 2) Render the list in the table
     listView.render(model.state.cryptoList);
   } catch (err) {
-    alert(err);
+    console.error(err);
   }
 };
 
