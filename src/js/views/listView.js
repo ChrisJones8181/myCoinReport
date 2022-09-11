@@ -27,13 +27,16 @@ class ListView {
     const currency = new Intl.NumberFormat('en-GB', {
       style: 'currency',
       currency: 'GBP',
-      maximumFractionDigits: 2,
+      // roundingPriority: 'lessPrecision',
+      // maximumFractionDigits: 2,
+      // minimumFractionDigits: 2,
+      minimumSignificantDigits: 3,
     }).format(value);
     return currency;
   }
 
   formatPercentage(value) {
-    const percentage = new Intl.NumberFormat('en', {
+    const percentage = new Intl.NumberFormat('en-GB', {
       maximumFractionDigits: 2,
       minimumFractionDigits: 2,
       signDisplay: 'exceptZero',
@@ -44,6 +47,14 @@ class ListView {
     if (value < 0) style = ' class="percentageDecrease"';
 
     return `<p${style}>${percentage}</p$>`;
+  }
+
+  formatSupply(value) {
+    const supply = new Intl.NumberFormat('en-GB', {
+      maximumFractionDigits: 0,
+    }).format(value);
+
+    return supply;
   }
 
   #generateMarkup() {
@@ -59,7 +70,9 @@ class ListView {
           <td>${this.formatCurrency(element.current_price)}</td>
           <td>${this.formatPercentage(element.price_change_percentage_24h)}</td>
           <td>${this.formatCurrency(element.market_cap)}</td>
-          <td>${element.circulating_supply}</td>
+          <td>${this.formatSupply(
+            element.circulating_supply
+          )} ${element.symbol.toUpperCase()}</td>
         </tr>`
       );
     });
@@ -67,8 +80,3 @@ class ListView {
 }
 export default new ListView();
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#specifications
-
-// Intl.NumberFormat('en-GB', {
-//   style: 'percent',
-// maximumFractionDigits: 2
-// }).format(amount);
