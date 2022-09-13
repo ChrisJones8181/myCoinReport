@@ -68,11 +68,20 @@ class ListView {
           <td>${element.name}</td>
           <td>${element.symbol.toUpperCase()}</td>
           <td>${this.formatCurrency(element.current_price)}</td>
-          <td>${this.formatPercentage(element.price_change_percentage_24h)}</td>
+          <td>${this.formatPercentage(
+            element.price_change_percentage_24h_in_currency
+          )}%</td>
+          <td>${this.formatPercentage(
+            element.price_change_percentage_7d_in_currency
+          )}%</td>
+          <td>${this.formatPercentage(
+            element.price_change_percentage_30d_in_currency
+          )}%</td>
           <td>${this.formatCurrency(element.market_cap)}</td>
           <td>${this.formatSupply(
             element.circulating_supply
           )} ${element.symbol.toUpperCase()}</td>
+          <td>data</td>
         </tr>`
       );
     });
