@@ -3,6 +3,7 @@
 
 import * as model from './model.js';
 import listView from './views/listView.js';
+import Sparkline from 'sparklines';
 
 const controlCryptoList = async function () {
   try {

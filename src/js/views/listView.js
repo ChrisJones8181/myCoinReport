@@ -1,8 +1,10 @@
+import Sparkline from 'sparklines';
+
 class ListView {
   #parentElement = document.querySelector('.table');
   #data;
 
-  #clear() {
+  clear() {
     this.#parentElement.innerHTML = '';
   }
 
@@ -57,6 +59,19 @@ class ListView {
     return supply;
   }
 
+  renderSparkline(id, data) {
+    let colour = '';
+    if (data[0] > data[data.length - 1]) colour = 'crimson';
+    if (data[0] < data[data.length - 1]) colour = 'green';
+
+    const sparkline = new Sparkline(document.getElementById(`${id}`), {
+      lineColor: `${colour}`,
+      height: 35,
+      endColor: 'transparent',
+    });
+    sparkline.draw(data);
+  }
+
   #generateMarkup() {
     this.#data.forEach(element => {
       this.#parentElement.insertAdjacentHTML(
@@ -81,9 +96,10 @@ class ListView {
           <td>${this.formatSupply(
             element.circulating_supply
           )} ${element.symbol.toUpperCase()}</td>
-          <td>data</td>
+          <td id="${element.symbol}">data</td>
         </tr>`
       );
+      this.renderSparkline(element.symbol, element.sparkline_in_7d.price);
     });
   }
 }
