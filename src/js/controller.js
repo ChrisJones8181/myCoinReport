@@ -3,11 +3,11 @@
 
 import * as model from './model.js';
 import listView from './views/listView.js';
-import Sparkline from 'sparklines';
 
 const controlCryptoList = async function () {
   try {
     // listView.renderSpinner();
+    listView.renderSpinner();
 
     // 1) Load the list of top cryptos
     await model.loadCryptoList();

@@ -15,14 +15,26 @@ class ListView {
 
   renderSpinner() {
     const markup = `
-      <tr>  
-        <div class="spinner">
-         <span class="material-icons"> refresh </span>
-        </div>
-      <tr>
+      <tr class="spinnerRow">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <div class="spinner">
+            <span class="material-icons"> refresh </span>
+          </div>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
     `;
-    // this._clear();
-    this.#parentElement.insertAdjacentHTML('afterbegin', markup);
+
+    this.#parentElement.insertAdjacentHTML('beforeend', markup);
   }
 
   formatCurrency(value) {
@@ -31,7 +43,7 @@ class ListView {
       currency: 'GBP',
       // roundingPriority: 'lessPrecision',
       // maximumFractionDigits: 2,
-      // minimumFractionDigits: 2,
+      minimumFractionDigits: 2,
       minimumSignificantDigits: 3,
     }).format(value);
     return currency;
@@ -73,6 +85,9 @@ class ListView {
   }
 
   #generateMarkup() {
+    //Remove spinner
+    document.querySelector('.spinnerRow').remove();
+    //Render the data
     this.#data.forEach(element => {
       this.#parentElement.insertAdjacentHTML(
         'beforeend',
