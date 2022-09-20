@@ -41,8 +41,8 @@ class ListView {
     const currency = new Intl.NumberFormat('en-GB', {
       style: 'currency',
       currency: 'GBP',
-      // roundingPriority: 'lessPrecision',
-      // maximumFractionDigits: 2,
+      roundingPriority: 'lessPrecision',
+      maximumFractionDigits: 2,
       minimumFractionDigits: 2,
       minimumSignificantDigits: 3,
     }).format(value);
