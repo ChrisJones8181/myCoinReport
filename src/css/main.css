@@ -14,14 +14,18 @@ body {
 }
 
 .tableContainer {
-  border: 0.15rem solid grey;
-  border-radius: 1.5rem;
+  /* border: 0.15rem solid grey;
+  border-radius: 1.5rem; */
   margin: 2rem;
   padding: 0rem 1rem 1rem 1rem;
 }
 
 .table {
   width: 100%;
+  border: 0.15rem solid grey;
+  border-radius: 1.5rem;
+  padding: 0.5rem;
+
   /* display: grid;
   place-items: center; */
 }
