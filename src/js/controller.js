@@ -20,3 +20,8 @@ const controlCryptoList = async function () {
 };
 
 controlCryptoList();
+
+// setTimeout(() => {
+//   controlCryptoList();
+//   console.log('time');
+// }, 10000);
